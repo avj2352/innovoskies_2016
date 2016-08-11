@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900|Montez);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+/*TODO:Custom CSS*/
+.titleCursive{
+  font-family: 'Satisfy', cursive;
+}
+.cardHighlight{
+  /*color: #f7d08d;*/
+  color: #ffcc33;
+  text-shadow: 2px 2px #000000;
+}
+
+.whiteHighlight{
+  color: #fff;
+  text-shadow: 2px 2px #000000;
+}
+
+
+.redHighlight{
+  color:#ff2f2f;
+  text-shadow: 2px 2px #000000;
+}
+
+.cardboxShadow{
+  border:3px solid white;
+  -webkit-box-shadow: 10px 10px 47px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 47px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 47px 0px rgba(0,0,0,0.75);
+}
+
+/*Sparkley Effect for the Wedding Cards*/
+.sparkley {
+  background: #3e5871;
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  font-weight: normal;
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  box-shadow: 0 38px 32px -23px black;
+  margin: 0 1em 1em;
+}
+.sparkley:hover {
+  background: #2c3e50;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+html body {
+  padding: 50px;
+}
+
+h1 span, h2 span, h3 span {
+  /*font-family: Lobster;*/
+  font-size: 1.2em;
+  font-weight: lighter;
+  margin: 0 0.3em;
+  color: #fff;
+}
+
+h1 {
+  font-size: 1.9em;
+  width: 900px;
+  margin: 0 auto 1em;
+  text-shadow: 0 2px 1px black;
+}
+
+.img {
+  margin: 40px auto 0;
+  width: 500px;
+  display: block;
+}
+.img img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+p {
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 10px auto;
+}

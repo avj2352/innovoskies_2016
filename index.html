@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
-``
     <!-- Mobile Internet Explorer ClearType Technology -->
     <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
 
@@ -51,32 +50,14 @@
 
 
 <body>
-
-    <!-- This section is for Splash Screen -->
-    <section id="jSplash">
-     <div id="circle"></div>
- </section>
- <!-- End of Splash Screen -->
-
- <!-- Homepage Slider -->
- <div id="home-slider">
-     <div class="overlay"></div>
-
-     <div class="slider-text">
-         <div id="slidecaption"></div>
-     </div>
-
-     <div class="control-nav">
-        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
-        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
-        <ul id="slide-list"></ul>
-
-        <a id="nextsection" href="#about"><i class="font-icon-arrow-simple-down"></i></a>
-    </div>
-</div>
-<!-- End Homepage Slider -->
-
 <!-- Header -->
+<!-- This section is for Splash Screen -->
+<!-- <section id="jSplash">
+ <div id="circle"></div>
+</section> -->
+<!-- End of Splash Screen -->
+<div id="headingVideoBanner" style="width: 100%; height: 100%;" data-vide-bg="mp4: img/video/sunset, webm: img/video/sunset, ogv: img/video/sunset, poster: img/video/sunset" data-vide-options="posterType: jpg, loop: true, muted: false, position: 0% 0%"></div>
+<!-- <div id="headingVideoBanner"></div> -->
 <header>
     <div class="sticky-nav">
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
@@ -481,6 +462,7 @@
 
 <!-- Js -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script src="js/jquery.vide.min.js"></script>
 <script src="js/bootstrap.min.js"></script> <!-- Bootstrap -->
 <script src="js/supersized.3.2.7.min.js"></script> <!-- Slider -->
 <script src="js/waypoints.js"></script> <!-- WayPoints -->

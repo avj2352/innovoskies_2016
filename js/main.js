@@ -1,4 +1,10 @@
-jQuery(function($){
+(function($){
+// Vide plugin
+var $headingVideoBannerDom = $('#headingVideoBanner');
+$headingVideoBannerDom.html('<img src="img/innovo_logo.png" width="20%" height="auto">');
+// $headingVideoBannerDom.html($logoImageDom);
+var $logoImageDom = $headingVideoBannerDom.find('img');
+$logoImageDom.css({position:'absolute',margin:0,top:'37%',left:'40%'});
 
 var BRUSHED = window.BRUSHED || {};
 
@@ -9,7 +15,7 @@ var mobileMenuClone = $('#menu').clone().attr('id', 'navigation-mobile');
 
 BRUSHED.mobileNav = function(){
 	var windowWidth = $(window).width();
-	
+
 	if( windowWidth <= 979 ) {
 		if( $('#mobile-nav').length > 0 ) {
 			mobileMenuClone.insertAfter('#menu');
@@ -18,15 +24,15 @@ BRUSHED.mobileNav = function(){
 	} else {
 		$('#navigation-mobile').css('display', 'none');
 		if ($('#mobile-nav').hasClass('open')) {
-			$('#mobile-nav').removeClass('open');	
+			$('#mobile-nav').removeClass('open');
 		}
 	}
-}
+};
 
 BRUSHED.listenerMenu = function(){
 	$('#mobile-nav').on('click', function(e){
 		$(this).toggleClass('open');
-		
+
 		if ($('#mobile-nav').hasClass('open')) {
 			$('#navigation-mobile').slideDown(500, 'easeOutExpo');
 		} else {
@@ -34,13 +40,12 @@ BRUSHED.listenerMenu = function(){
 		}
 		e.preventDefault();
 	});
-	
+
 	$('#menu-nav-mobile a').on('click', function(){
 		$('#mobile-nav').removeClass('open');
 		$('#navigation-mobile').slideUp(350, 'easeOutExpo');
 	});
-}
-
+};//end:listenerMenu()
 
 /* ==================================================
    Slider Options
@@ -62,8 +67,8 @@ BRUSHED.slider = function(){
 		keyboard_nav            :   1,			// Keyboard navigation on/off
 		performance				:	1,			// 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
 		image_protect			:	1,			// Disables image dragging and right click with Javascript
-												   
-		// Size & Position						   
+
+		// Size & Position
 		min_width		        :   0,			// Min width allowed (in pixels)
 		min_height		        :   0,			// Min height allowed (in pixels)
 		vertical_center         :   1,			// Vertically center background
@@ -71,8 +76,8 @@ BRUSHED.slider = function(){
 		fit_always				:	0,			// Image will never exceed browser width or height (Ignores min. dimensions)
 		fit_portrait         	:   1,			// Portrait images will not exceed browser height
 		fit_landscape			:   0,			// Landscape images will not exceed browser width
-												   
-		// Components							
+
+		// Components
 		slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
 		thumb_links				:	0,			// Individual thumb links for each slide
 		thumbnail_navigation    :   0,			// Thumbnail navigation
@@ -80,16 +85,16 @@ BRUSHED.slider = function(){
 {image : 'img/menu_slide/blue.jpg', title : '<div class="slide-content"><img width="250px" height="auto" src="img/innovo_logo.png" alt="Logo"><h3 class="title-description">Welcome to <span class="goldHighlight">Innovoskies</span></h3></div>', thumb : '', url : ''},
 {image : 'img/menu_slide/innovation_yello_umbrella.jpg', title : '<div class="slide-content"><img width="250px" height="auto" src="img/innovo_logo.png" alt="Logo"><h3 class="title-description">Think <span class="goldHighlight">Differently</span></h3></div>', thumb : '', url : ''},
 {image : 'img/menu_slide/plant.jpg', title : '<div class="slide-content"><img width="250px" height="auto" src="img/innovo_logo.png" alt="Logo"><h3 class="title-description"><span class="goldHighlight">Ideas</span> Innovated</h3></div>', thumb : '', url : ''},
-{image : 'img/menu_slide/pink_wallpaper.jpg', title : '<div class="slide-content"><img width="250px" height="auto" src="img/innovo_logo.png" alt="Logo"><h3 class="title-description">One Stop <span class="goldHighlight">Solution</span></h3></div>', thumb : '', url : ''}  
+{image : 'img/menu_slide/pink_wallpaper.jpg', title : '<div class="slide-content"><img width="250px" height="auto" src="img/innovo_logo.png" alt="Logo"><h3 class="title-description">One Stop <span class="goldHighlight">Solution</span></h3></div>', thumb : '', url : ''}
 									],
-									
-		// Theme Options			   
-		progress_bar			:	3,			// Timer for each slide							
+
+		// Theme Options
+		progress_bar			:	3,			// Timer for each slide
 		mouse_scrub				:	0
-		
+
 	});
 
-}
+};//end:slider()
 
 
 /* ==================================================
@@ -98,7 +103,7 @@ BRUSHED.slider = function(){
 
 BRUSHED.nav = function(){
 	$('.sticky-nav').waypoint('sticky');
-}
+};//end:nav()
 
 
 /* ==================================================
@@ -106,9 +111,9 @@ BRUSHED.nav = function(){
 ================================================== */
 
 BRUSHED.filter = function (){
-	if($('#projects').length > 0){		
+	if($('#projects').length > 0){
 		var $container = $('#projects');
-		
+
 		$container.imagesLoaded(function() {
 			$container.isotope({
 			  // options
@@ -117,12 +122,12 @@ BRUSHED.filter = function (){
 			  layoutMode : 'fitRows'
 			});
 		});
-	
-		
+
+
 		// filter items when filter link is clicked
 		var $optionSets = $('#options .option-set'),
 			$optionLinks = $optionSets.find('a');
-	
+
 		  $optionLinks.click(function(){
 			var $this = $(this);
 			// don't proceed if already selected
@@ -132,7 +137,7 @@ BRUSHED.filter = function (){
 			var $optionSet = $this.parents('.option-set');
 			$optionSet.find('.selected').removeClass('selected');
 			$this.addClass('selected');
-	  
+
 			// make option object dynamically, i.e. { filter: '.my-filter-class' }
 			var options = {},
 				key = $optionSet.attr('data-option-key'),
@@ -142,16 +147,16 @@ BRUSHED.filter = function (){
 			options[ key ] = value;
 			if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
 			  // changes in layout modes need extra logic
-			  changeLayoutMode( $this, options )
+			  changeLayoutMode( $this, options );
 			} else {
 			  // otherwise, apply new options
 			  $container.isotope( options );
 			}
-			
+
 			return false;
 		});
 	}
-}
+};
 
 
 /* ==================================================
@@ -160,8 +165,8 @@ BRUSHED.filter = function (){
 
 BRUSHED.fancyBox = function(){
 	if($('.fancybox').length > 0 || $('.fancybox-media').length > 0 || $('.fancybox-various').length > 0){
-		
-		$(".fancybox").fancybox({				
+
+		$(".fancybox").fancybox({
 				padding : 0,
 				beforeShow: function () {
 					this.title = $(this.element).attr('title');
@@ -171,7 +176,7 @@ BRUSHED.fancyBox = function(){
 					title : { type: 'inside' },
 				}
 			});
-			
+
 		$('.fancybox-media').fancybox({
 			openEffect  : 'none',
 			closeEffect : 'none',
@@ -180,7 +185,7 @@ BRUSHED.fancyBox = function(){
 			}
 		});
 	}
-}
+};
 
 
 /* ==================================================
@@ -190,27 +195,27 @@ BRUSHED.fancyBox = function(){
 BRUSHED.contactForm = function(){
 	$("#contact-submit").on('click',function() {
 		$contact_form = $('#contact-form');
-		
+
 		var fields = $contact_form.serialize();
-		
+
 		$.ajax({
 			type: "POST",
 			url: "php/contact.php",
 			data: fields,
 			dataType: 'json',
 			success: function(response) {
-				
+
 				if(response.status){
 					$('#contact-form input').val('');
 					$('#contact-form textarea').val('');
 				}
-				
+
 				$('#response').empty().html(response.html);
 			}
 		});
 		return false;
 	});
-}
+};//end:contactForm()
 
 
 /* ==================================================
@@ -218,9 +223,9 @@ BRUSHED.contactForm = function(){
 ================================================== */
 
 BRUSHED.tweetFeed = function(){
-	
+
 	var valueTop = -64; // Margin Top Value
-	
+
     $("#ticker").tweet({
           modpath: 'js/twitter/',
           username: "Bluxart", // Change this with YOUR ID
@@ -236,14 +241,14 @@ BRUSHED.tweetFeed = function(){
 		setTimeout(function() {
 			ul.find('li:first').animate( {marginTop: valueTop + 'px'}, 500, 'linear', function() {
 				$(this).detach().appendTo(ul).removeAttr('style');
-			});	
+			});
 		  ticker();
 		}, 5000);
 	  };
 	  ticker();
 	});
-	
-}
+
+};//end:tweetFeed()
 
 
 /* ==================================================
@@ -260,7 +265,7 @@ BRUSHED.menu = function(){
 		easing: 'easeOutExpo',
 		filter: ':not(.external)'
 	});
-}
+};//end:menu()
 
 /* ==================================================
    Next Section
@@ -269,11 +274,11 @@ BRUSHED.menu = function(){
 BRUSHED.goSection = function(){
 	$('#nextsection').on('click', function(){
 		$target = $($(this).attr('href')).offset().top-30;
-		
+
 		$('body, html').animate({scrollTop : $target}, 750, 'easeOutExpo');
 		return false;
 	});
-}
+};//end:goSection()
 
 /* ==================================================
    GoUp
@@ -282,11 +287,11 @@ BRUSHED.goSection = function(){
 BRUSHED.goUp = function(){
 	$('#goUp').on('click', function(){
 		$target = $($(this).attr('href')).offset().top-30;
-		
+
 		$('body, html').animate({scrollTop : $target}, 750, 'easeOutExpo');
 		return false;
 	});
-}
+};//end:goUp()
 
 
 /* ==================================================
@@ -302,7 +307,7 @@ BRUSHED.scrollToTop = function(){
 	$arrow.click(function(e) {
 		$('body,html').animate({ scrollTop: "0" }, 750, 'easeOutExpo' );
 		e.preventDefault();
-	})
+	});//end:scrollToTop()
 
 	$(window).scroll(function() {
 		didScroll = true;
@@ -319,30 +324,30 @@ BRUSHED.scrollToTop = function(){
 			}
 		}
 	}, 250);
-}
+};//end:scrollToTop()
 
 /* ==================================================
    Thumbs / Social Effects
 ================================================== */
 
 BRUSHED.utils = function(){
-	
+
 	$('.item-thumbs').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
+
 	$('.image-wrap').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
+
 	$('#social ul li').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
-}
+
+};//end:utils()
 
 /* ==================================================
    Accordion
@@ -350,21 +355,21 @@ BRUSHED.utils = function(){
 
 BRUSHED.accordion = function(){
 	var accordion_trigger = $('.accordion-heading.accordionize');
-	
+
 	accordion_trigger.delegate('.accordion-toggle','click', function(event){
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
 		   	$(this).addClass('inactive');
 		}
 		else{
-		  	accordion_trigger.find('.active').addClass('inactive');          
-		  	accordion_trigger.find('.active').removeClass('active');   
+		  	accordion_trigger.find('.active').addClass('inactive');
+		  	accordion_trigger.find('.active').removeClass('active');
 		  	$(this).removeClass('inactive');
 		  	$(this).addClass('active');
 	 	}
 		event.preventDefault();
 	});
-}
+};//end:accordion()
 
 /* ==================================================
    Toggle
@@ -372,7 +377,7 @@ BRUSHED.accordion = function(){
 
 BRUSHED.toggle = function(){
 	var accordion_trigger_toggle = $('.accordion-heading.togglize');
-	
+
 	accordion_trigger_toggle.delegate('.accordion-toggle','click', function(event){
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
@@ -384,41 +389,42 @@ BRUSHED.toggle = function(){
 	 	}
 		event.preventDefault();
 	});
-}
+};//end:toggle()
 
 /* ==================================================
    Tooltip
 ================================================== */
 
-BRUSHED.toolTip = function(){ 
+BRUSHED.toolTip = function(){
     $('a[data-toggle=tooltip]').tooltip();
-}
+};//end:toolTip()
 
 
 /* ==================================================
 	Init
 ================================================== */
 
-BRUSHED.slider();
+//CHANGED:commented the following
+//BRUSHED.slider();
 
 $(document).ready(function(){
-	Modernizr.load([
-	{
-		test: Modernizr.placeholder,
-		nope: 'js/placeholder.js', 
-		complete : function() {
-				if (!Modernizr.placeholder) {
-						Placeholders.init({
-						live: true,
-						hideOnFocus: false,
-						className: "yourClass",
-						textColor: "#999"
-						});    
-				}
-		}
-	}
-	]);
-	
+	// Modernizr.load([
+	// {
+	// 	test: Modernizr.placeholder,
+	// 	nope: 'js/placeholder.js',
+	// 	complete : function() {
+	// 			if (!Modernizr.placeholder) {
+	// 					Placeholders.init({
+	// 					live: true,
+	// 					hideOnFocus: false,
+	// 					className: "yourClass",
+	// 					textColor: "#999"
+	// 					});
+	// 			}
+	// 	}
+	// }
+	// ]);
+
 	// Preload the page with jPreLoader
 	$('body').jpreLoader({
 		splashID: "#jSplash",
@@ -429,7 +435,7 @@ $(document).ready(function(){
 			$('#circle').delay(250).animate({'opacity' : 1}, 500, 'linear');
 		}
 	});
-	
+
 	BRUSHED.nav();
 	BRUSHED.mobileNav();
 	BRUSHED.listenerMenu();
@@ -451,4 +457,4 @@ $(window).resize(function(){
 	BRUSHED.mobileNav();
 });
 
-});
+}(jQuery));//IIFE jQuery
